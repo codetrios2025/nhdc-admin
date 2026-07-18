@@ -39,9 +39,7 @@ class DepartmentRepository {
 
   async findByName(name) {
     return await Department.findOne({
-      name: {
-        $regex: new RegExp(`^${name}$`, "i"),
-      },
+      name: name.trim(),
     });
   }
 

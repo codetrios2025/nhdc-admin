@@ -24,6 +24,8 @@ import EditService from "../features/services/pages/EditService";
 import ServiceView from "../features/services/pages/ServiceView";
 
 import AppointmentListPage from "../features/appointment/pages/AppointmentListPage";
+import DepartmentListPage from "../features/departments/pages/DepartmentListPage";
+import DepartmentFormPage from "../features/departments/pages/DepartmentFormPage";
 
 const AppRoutes = () => {
   return (
@@ -57,6 +59,10 @@ const AppRoutes = () => {
         <Route path="/services/:id" element={<ServiceView />} />
 
         <Route path="/appointments" element={<AppointmentListPage />} />
+        <Route path="/departments" element={<DepartmentListPage />} />
+        <Route path="/departments/add" element={<DepartmentFormPage />} />
+
+        <Route path="/departments/edit/:id" element={<DepartmentFormPage />} />
       </Route>
     </Routes>
   );

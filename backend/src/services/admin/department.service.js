@@ -11,11 +11,15 @@ class DepartmentService {
 
   async create(data) {
     // Check duplicate name
-    const existingDepartment = await DepartmentRepository.findByName(data.name);
+    const normalizedName = data.name.trim();
+    const existingDepartment =
+      await DepartmentRepository.findByName(normalizedName);
 
     if (existingDepartment) {
       throw new Error("Department already exists.");
     }
+
+    data.name = normalizedName;
 
     // Generate slug
     data.slug = slugify(data.name, {

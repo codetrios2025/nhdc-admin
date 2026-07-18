@@ -6,6 +6,7 @@ import doctorReducer from "./slices/doctorSlice";
 import videoReducer from "./slices/videoSlice";
 import serviceReducer from "./slices/serviceSlice";
 import appointmentReducer from "./slices/appointmentSlice";
+import departmentReducer from "./slices/departmentSlice";
 
 const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ const store = configureStore({
     video: videoReducer,
     service: serviceReducer,
     appointments: appointmentReducer,
+    departments: departmentReducer,
   },
 });
 
