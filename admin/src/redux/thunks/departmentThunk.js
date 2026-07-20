@@ -79,6 +79,21 @@ export const deleteDepartment = createAsyncThunk(
   },
 );
 
+export const fetchDepartmentDropdown1 = createAsyncThunk(
+  "departments/fetchDepartmentDropdown",
+  async (_, thunkAPI) => {
+    try {
+      const response = await departmentApi.getDropdown();
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || "Unable to fetch dropdown.",
+      );
+    }
+  },
+);
+
 export const fetchDepartmentDropdown = createAsyncThunk(
   "departments/fetchDepartmentDropdown",
   async (_, thunkAPI) => {

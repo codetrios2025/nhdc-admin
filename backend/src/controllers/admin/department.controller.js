@@ -206,11 +206,14 @@ class DepartmentController {
     try {
       const departments = await DepartmentService.getDropdown();
 
-      return ApiResponse.success(
-        res,
-        departments,
-        "Department dropdown fetched successfully.",
-      );
+      return res
+        .status(201)
+        .json(
+          ApiResponse.success(
+            "Department dropdown fetched successfully.",
+            departments,
+          ),
+        );
     } catch (error) {
       next(error);
     }

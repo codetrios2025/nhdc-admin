@@ -15,6 +15,7 @@ const initialState = {
   department: null,
   dropdown: [],
   statistics: {},
+  departmentDropdown: [],
 
   pagination: {
     page: 1,
@@ -77,7 +78,7 @@ const departmentSlice = createSlice({
 
       // Dropdown
       .addCase(fetchDepartmentDropdown.fulfilled, (state, action) => {
-        state.dropdown = action.payload;
+        state.departmentDropdown = action.payload;
       })
 
       // Statistics

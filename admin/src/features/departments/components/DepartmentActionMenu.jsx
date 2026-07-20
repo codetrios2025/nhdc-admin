@@ -13,44 +13,43 @@ const DepartmentActionMenu = ({ department }) => {
       text: "This action cannot be undone.",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "Delete",
-      cancelButtonText: "Cancel",
       confirmButtonColor: "#dc3545",
+      confirmButtonText: "Yes, Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        dispatch(deleteDepartment(department._id))
-          .unwrap()
-          .then(() => {
-            Swal.fire({
-              icon: "success",
-              title: "Deleted",
-              text: "Department deleted successfully.",
-              timer: 1500,
-              showConfirmButton: false,
-            });
-          })
-          .catch((error) => {
-            Swal.fire({
-              icon: "error",
-              title: "Error",
-              text: error || "Unable to delete department.",
-            });
-          });
+        dispatch(deleteDepartment(department._id));
       }
     });
   };
 
   return (
-    <div className="btn-group btn-group-sm">
+    <div className="d-flex justify-content-center">
+      {/* View */}
       <Link
-        to={`/departments/edit/${department._id}`}
-        className="btn btn-primary"
+        to={`/departments/view/${department._id}`}
+        className="btn btn-info btn-sm rounded-0"
+        title="View"
       >
-        <i className="fa fa-edit"></i>
+        <i className="bi bi-eye"></i>
       </Link>
 
-      <button className="btn btn-danger" onClick={handleDelete}>
-        <i className="fa fa-trash"></i>
+      {/* Edit */}
+      <Link
+        to={`/departments/edit/${department._id}`}
+        className="btn btn-warning btn-sm rounded-0"
+        title="Edit"
+      >
+        <i className="bi bi-pencil"></i>
+      </Link>
+
+      {/* Delete */}
+      <button
+        type="button"
+        className="btn btn-danger btn-sm rounded-0"
+        title="Delete"
+        onClick={handleDelete}
+      >
+        <i className="bi bi-trash"></i>
       </button>
     </div>
   );

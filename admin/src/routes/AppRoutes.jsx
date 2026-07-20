@@ -26,6 +26,7 @@ import ServiceView from "../features/services/pages/ServiceView";
 import AppointmentListPage from "../features/appointment/pages/AppointmentListPage";
 import DepartmentListPage from "../features/departments/pages/DepartmentListPage";
 import DepartmentFormPage from "../features/departments/pages/DepartmentFormPage";
+import DepartmentViewPage from "../features/departments/pages/DepartmentViewPage";
 
 const AppRoutes = () => {
   return (
@@ -63,6 +64,7 @@ const AppRoutes = () => {
         <Route path="/departments/add" element={<DepartmentFormPage />} />
 
         <Route path="/departments/edit/:id" element={<DepartmentFormPage />} />
+        <Route path="/departments/view/:id" element={<DepartmentViewPage />} />
       </Route>
     </Routes>
   );

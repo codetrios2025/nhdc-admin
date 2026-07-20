@@ -1,3 +1,6 @@
+import React from "react";
+import DepartmentDropdown from "../../../components/common/DepartmentDropdown";
+
 const DoctorBasicInfo = ({ register, errors }) => {
   return (
     <div className="card mb-4">
@@ -27,9 +30,15 @@ const DoctorBasicInfo = ({ register, errors }) => {
           </div>
 
           <div className="col-md-6 mb-3">
-            <label>Department</label>
+            {/* <label>Department</label> */}
+            <DepartmentDropdown
+              register={register}
+              name="department"
+              required
+              error={errors.department}
+            />
 
-            <select
+            {/* <select
               className={`form-select ${errors.department ? "is-invalid" : ""}`}
               {...register("department", {
                 required: "Department is required",
@@ -52,7 +61,7 @@ const DoctorBasicInfo = ({ register, errors }) => {
               <option value="Ophthalmology">Ophthalmology</option>
 
               <option value="Pediatrics">Pediatrics</option>
-            </select>
+            </select> */}
 
             <div className="invalid-feedback">{errors.department?.message}</div>
           </div>

@@ -35,7 +35,9 @@ const doctorSchema = new mongoose.Schema(
     dateOfBirth: Date,
 
     department: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Department",
+      default: null,
       required: true,
     },
 
